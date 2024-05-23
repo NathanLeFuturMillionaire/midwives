@@ -2,13 +2,14 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../css/style.css" />
     <title>WomanWize - Sages femmes à votre service</title>
   </head>
   <body>
     <!-- Date de début de création du site : 17 Mai 2024 -->
     <!-- Englobe tout le contenu de la page -->
+    <?php require "visitors.php"; ?>
     <div id="main-page">
       <div class="banner">
         <header class="heading">
@@ -17,12 +18,15 @@
           </div>
           <nav class="navbar">
             <ul class="sidenav">
-                <li><a href="./main.html" class="link link-1">Accueil</a></li>
-                <li><a href="" class="link link-2">Services</a></li>
-                <li><a href="" class="link link-3">Sages femmes</a></li>
-                <li><a href="" class="link link-3">Contact</a></li>
+                <li><a href="./main.php" class="link link-1 home-link">Accueil</a></li>
+                <li><a href="" class="link link-2" id="service-link">Services</a></li>
+                <li><a href="" class="link link-3 midwives-link">Sages</a></li>
+                <li><a href="" class="link link-3" id="contact-link">Contact</a></li>
             </ul>
           </nav>
+          <div class="toggle">
+            <img src="../pictures/icons/menu.svg" alt="Le button du menu">
+          </div>
         </header>
         <div class="rounded-circle rounded-circle-1"></div>
         <div class="rounded-circle rounded-circle-2"></div>
@@ -33,7 +37,7 @@
           <div class="content-centered">
             <h2>MidWives</h2>
             <p>Le suivi de votre grossesse et les conseils liés à votre accouchement sont notre spécialité, mais pas que.</p>
-            <a href="#services" class="link button">Nous découvrir</a>
+            <a href="#services" class="link button" id="service-link">Nous découvrir</a>
           </div>
         </div>
       </div>
@@ -165,7 +169,7 @@
             <h2>Merci <em class="username">{username}</em> !</h2>
           </header>
           <div class="modal-body">
-            <p>J'ai bien reçu ton message <em class="username">{username}</em>, je vais t'envoyer un message de remercie à ton adresse email. Bisou 😘</p>
+            <p>J'ai bien reçu ton message <em class="username">{username}</em>, je vais t'envoyer un message de remerciement à ton adresse email. Bisou 😘</p>
             <a href="" class="link link-6">Fermer</a>
           </div>
         </div>

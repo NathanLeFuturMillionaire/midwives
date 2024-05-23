@@ -21,8 +21,7 @@ function checkInputs() {
         } else {
           inputs[i].classList.add("lastname-error-background");
           error.classList.add("lastname-error-color");
-          error.textContent =
-            "Hum hum 🤔, regardes les champs en rouge, il faut corriger ça";
+          error.textContent = "Hum hum 🤔, regardes les champs en rouge, il faut corriger ça";
           formChecked.username = false;
         }
       } else if (inputs[i].className == "user-firstname") {
@@ -47,8 +46,7 @@ function checkInputs() {
     } else {
       textArea.classList.add("message-error-background");
       error.classList.add("message-error-color");
-      error.textContent =
-        "Hum hum 🤔, regardes les champs en rouge, il faut corriger ça";
+      error.textContent = "Hum hum 🤔, regardes les champs en rouge, il faut corriger ça";
       formChecked.message = false;
     }
 
@@ -57,11 +55,12 @@ function checkInputs() {
       sendFormData();
     } else {
       error.classList.add("message-error-color");
-      error.textContent =
-        "Hum hum 🤔, regardes les champs en rouge, il faut corriger ça";
+      error.textContent = "Hum hum 🤔, regardes les champs en rouge, il faut corriger ça";
     }
   });
 }
+
+checkInputs();
 
 function sendFormData() {
   const formData = new FormData();
@@ -114,4 +113,83 @@ function showModal() {
   }
 }
 
-checkInputs();
+function scrollTop() {
+  let heading = document.querySelector(".banner > .heading");
+  let getServicesButtons = document.querySelectorAll("#service-link");
+  let getMidWiveslink = document.querySelector(".midwives-link");
+  let getHomeLink = document.querySelector(".home-link");
+  let getContactLink = document.querySelector("#contact-link");
+
+  getMidWiveslink.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 770,
+    });
+  });
+
+  getHomeLink.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+    });
+  });
+
+  getContactLink.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 2050,
+    });
+  });
+
+  document.addEventListener("scroll", (e) => {
+
+    // Si le scroll vertical est égal à 0
+    if (window.scrollY === 0) {
+      // Déclenche un effet sur le header
+      heading.classList.remove("box-shadow");
+    } else {
+      heading.classList.add("box-shadow");
+
+    }
+  });
+
+  for (let i = 0; i < getServicesButtons.length; i++) {
+    getServicesButtons[i].addEventListener("click", (e) => {
+      e.preventDefault();
+
+      window.scrollTo({
+        top: 430,
+      });
+    })
+  }
+}
+
+scrollTop();
+
+function displayToggle() {
+  let displayToggle = document.querySelector(".banner .toggle"),
+      navbar = document.querySelector(".banner .navbar"),
+      links = document.querySelectorAll(".banner .navbar .sidenav a");
+
+  displayToggle.addEventListener("click", (e) => {
+    navbar.classList.add("active");
+    displayToggle.classList.add("bg");
+
+    for (let i = 0; i < links.length; i++) {
+      links[i].classList.add("display-links");
+      links[i].addEventListener("click", () => {
+        navbar.classList.remove("active");
+        displayToggle.classList.remove("bg");
+        for (let i = 0; i < links.length; i++) {
+          links[i].classList.remove("display-links");
+        }
+      });
+    }
+
+  });
+}
+
+displayToggle();
